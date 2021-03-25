@@ -11,6 +11,6 @@ app.use('/api/v1/messages', messageRouter);
 
 
 
-app.listen(process.env.PORT || port, () => {
+app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
