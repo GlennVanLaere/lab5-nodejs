@@ -1,46 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const messageController = require('../../../controllers/api/v1/messages');
 
-router.get('/', (req,res) => {
+router.get('/', messageController.getAll);
 
-    if(req.query.user){
-        let username = req.query.user;
-        res.json({
-            "message": `getting message with name ${username}`
-        })
+router.get('/:id', messageController.getOne);
 
-        }
-        else{
-            res.json({
-                "message": "getting message"
-            })
 
-        }
+router.post('/', messageController.post);
 
-})
-router.get('/:id', (req,res) => {
-    let id = req.params.id;
-    res.json({
-        "message": `getting message with ID ${id}`
-    })
-})
-router.post('/', (req,res) => {
-    res.json({
-        "message": "Posting a new message for user Pikatchu"
-    })
-})
-router.put('/:id', (req,res) => {
-    let id = req.params.id;
-    res.json({
-        "message": `updating a message with id ${id}`
-    })
-})
-router.delete('/:id', (req,res) => {
-    let id = req.params.id;
-    res.json({
-        "message": `deleting a message with id ${id}`
-    })
-})
+router.put('/:id', messageController.update);
+
+router.delete('/:id', messageController.deleteOne);
 
 module.exports = router;
 
