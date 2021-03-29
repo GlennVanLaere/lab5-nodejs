@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000;
 const messageRouter = require('./routers/api/v1/messages');
 
 app.get('/', (req, res) => {
@@ -11,6 +11,6 @@ app.use('/api/v1/messages', messageRouter);
 
 
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(PORT, () => {
+  console.log(`Our app is running on port ${ PORT }`);
+});
