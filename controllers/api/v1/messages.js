@@ -2,7 +2,7 @@ const getAll = (req,res) => {
     if(req.query.user){
         let username = req.query.user;
         res.json({
-            "message": `getting message with name ${username}`
+            "message": `getting messages from user ${username}`
         })
         }
         else{
